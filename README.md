@@ -1,76 +1,170 @@
-# ResumeAnalyser
-AI-powered Resume Analyzer built with Python &amp; Streamlit that parses resumes using NLP, predicts career domains, recommends skills &amp; courses, scores resumes, and provides an interactive analytics dashboard for administrators.
-
-
 # 🧠 AI Resume Analyzer
 
-An AI-powered web application that analyzes resumes using **Natural Language Processing (NLP)** to help job seekers improve their resumes and identify suitable career paths.
+A **Streamlit** web application that uses **Natural Language Processing** to analyze PDF resumes, predict career fields, recommend skills and courses, and provide an admin analytics dashboard.
 
-The application extracts important information from uploaded PDF resumes, predicts the candidate's career domain, recommends relevant technical skills and learning resources, generates a resume quality score, and provides personalized suggestions for improvement. It also includes an administrator dashboard with analytics to monitor user activity and application insights.
+---
 
-## 🚀 Key Features
+## ✨ Features
 
-* 📄 Automatic PDF Resume Parsing
-* 🤖 NLP-based Resume Information Extraction
-* 🎯 Career Domain Prediction
-* 💡 Personalized Skill Recommendations
-* 📚 Course Recommendations for Skill Development
-* ⭐ Resume Scoring System (Out of 100)
-* 📊 Interactive Admin Analytics Dashboard
-* 💬 User Feedback Collection
-* 📁 Secure Resume Upload & Processing
+| Feature | Description |
+|---|---|
+| 📄 Resume Parsing | Extracts name, email, phone, degree, skills, and page count from any PDF resume |
+| 🔍 Career Field Prediction | Classifies candidates into Data Science, Web Dev, Android, iOS, or UI/UX |
+| 💡 Skill Recommendations | Suggests in-demand skills based on the predicted field |
+| 📚 Course Recommendations | Recommends relevant Udemy, Coursera, and free courses |
+| 🏆 Resume Scoring | Scores the resume out of 100 based on section completeness |
+| 📊 Admin Dashboard | Visualizes user data with interactive Plotly pie charts |
+| 💬 Feedback System | Collects and displays user ratings and comments |
+
+---
+
+## 🖥️ Screenshots
+
+### User View
+![User Main Screen](screenshots/user/1-main-screen.png)
+![Analysis Results](screenshots/user/2-analysis.jpg)
+![Score & Tips](screenshots/user/5-tipsscore.png)
+
+### Admin Dashboard
+![Admin Overview](screenshots/admin/1-main-screen.png)
+![User Data Table](screenshots/admin/2-user-data.png)
+![Analytics Charts](screenshots/admin/5-pieexp.png)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- MySQL 5.7+
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/ai-resume-analyzer.git
+cd ai-resume-analyzer
+```
+
+### 2. Create and activate a virtual environment
+
+```bash
+python -m venv venv
+source venv/bin/activate        # Linux / macOS
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+```
+
+### 4. Configure environment variables
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your MySQL credentials and desired admin password:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=resume_analyzer_db
+
+ADMIN_USER=admin
+ADMIN_PASSWORD=your_secure_password
+```
+
+> ⚠️ Never commit your `.env` file. It is already listed in `.gitignore`.
+
+### 5. Set up the MySQL database
+
+The app creates the database and tables automatically on first run.  
+Just make sure your MySQL server is running and the credentials in `.env` are correct.
+
+### 6. Run the application
+
+```bash
+cd app
+streamlit run app.py
+```
+
+Open [http://localhost:8501](http://localhost:8501) in your browser.
+
+---
+
+## 🗂️ Project Structure
+
+```
+ai-resume-analyzer/
+├── app/
+│   ├── app.py                  # Main Streamlit application
+│   ├── courses.py              # Course recommendation data
+│   ├── Logo/                   # App logo images
+│   └── Uploaded_Resumes/       # Temporary storage for uploaded PDFs
+├── pyresparser/
+│   └── resume_parser.py        # Resume parser wrapper
+├── screenshots/                # App screenshots for documentation
+├── requirements.txt
+├── .env.example
+└── .gitignore
+```
+
+---
+
+## ⚙️ Configuration
+
+All sensitive configuration is handled through environment variables (see `.env.example`).  
+No credentials are hard-coded in the source.
+
+| Variable | Description | Default |
+|---|---|---|
+| `DB_HOST` | MySQL host | `localhost` |
+| `DB_USER` | MySQL username | `root` |
+| `DB_PASSWORD` | MySQL password | *(empty)* |
+| `DB_NAME` | Database name | `resume_analyzer_db` |
+| `ADMIN_USER` | Admin login username | `admin` |
+| `ADMIN_PASSWORD` | Admin login password | `changeme` |
+
+---
 
 ## 🛠️ Tech Stack
 
-**Frontend**
+- **Frontend / UI** – [Streamlit](https://streamlit.io)
+- **NLP / Parsing** – [spaCy](https://spacy.io), [pyresparser](https://github.com/OmkarPathak/pyresparser), [pdfminer3](https://pypi.org/project/pdfminer3/)
+- **Data** – [pandas](https://pandas.pydata.org), [NumPy](https://numpy.org)
+- **Visualization** – [Plotly](https://plotly.com/python/)
+- **Database** – MySQL via [PyMySQL](https://pymysql.readthedocs.io/)
+- **Geolocation** – [geocoder](https://geocoder.readthedocs.io/), [geopy](https://geopy.readthedocs.io/)
 
-* Streamlit
+---
 
-**Backend**
+## 🤝 Contributing
 
-* Python
+Contributions are welcome!
 
-**Libraries**
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m "Add your feature"`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a Pull Request
 
-* spaCy
-* PyResParser
-* Pandas
-* Plotly
-* NLTK
+---
 
-**Database**
+## 📄 License
 
-* MySQL
+This project is released under the [MIT License](LICENSE).
 
-## 🎯 Project Objectives
+---
 
-* Automate resume screening using AI.
-* Provide actionable recommendations for improving resumes.
-* Help students and professionals identify relevant career paths.
-* Reduce manual effort in resume evaluation.
-* Deliver analytics for administrators through interactive dashboards.
+## 🔮 Roadmap
 
-## 📈 Resume Analysis Includes
-
-* Personal Information Extraction
-* Skills Detection
-* Education Details
-* Resume Page Count
-* Career Prediction
-* Resume Quality Score
-* Missing Section Detection
-* Improvement Suggestions
-* Recommended Skills
-* Recommended Online Courses
-
-## 💼 Ideal Use Cases
-
-* Students preparing for placements
-* Freshers building their first resume
-* HR professionals for initial resume screening
-* Career guidance platforms
-* Resume optimization tools
-
-## 🌟 Highlights
-
-This project demonstrates practical applications of **Artificial Intelligence**, **Natural Language Processing**, **Data Processing**, **Machine Learning concepts**, and **Dashboard Development** in solving real-world recruitment challenges.
+- [ ] Support for DOCX resumes
+- [ ] Expand field detection (Cloud, DevOps, Cybersecurity)
+- [ ] Export analysis report as PDF
+- [ ] Docker Compose setup for one-command deployment
+- [ ] Unit and integration tests
