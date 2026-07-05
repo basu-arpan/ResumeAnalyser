@@ -18,20 +18,6 @@ A **Streamlit** web application that uses **Natural Language Processing** to ana
 
 ---
 
-## 🖥️ Screenshots
-
-### User View
-![User Main Screen](screenshots/user/1-main-screen.png)
-![Analysis Results](screenshots/user/2-analysis.jpg)
-![Score & Tips](screenshots/user/5-tipsscore.png)
-
-### Admin Dashboard
-![Admin Overview](screenshots/admin/1-main-screen.png)
-![User Data Table](screenshots/admin/2-user-data.png)
-![Analytics Charts](screenshots/admin/5-pieexp.png)
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -50,7 +36,6 @@ cd ai-resume-analyzer
 
 ```bash
 python -m venv venv
-source venv/bin/activate        # Linux / macOS
 venv\Scripts\activate           # Windows
 ```
 
@@ -132,17 +117,6 @@ No credentials are hard-coded in the source.
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Frontend / UI** – [Streamlit](https://streamlit.io)
-- **NLP / Parsing** – [spaCy](https://spacy.io), [pyresparser](https://github.com/OmkarPathak/pyresparser), [pdfminer3](https://pypi.org/project/pdfminer3/)
-- **Data** – [pandas](https://pandas.pydata.org), [NumPy](https://numpy.org)
-- **Visualization** – [Plotly](https://plotly.com/python/)
-- **Database** – MySQL via [PyMySQL](https://pymysql.readthedocs.io/)
-- **Geolocation** – [geocoder](https://geocoder.readthedocs.io/), [geopy](https://geopy.readthedocs.io/)
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome!
@@ -155,11 +129,6 @@ Contributions are welcome!
 
 ---
 
-## 📄 License
-
-This project is released under the [MIT License](LICENSE).
-
----
 
 ## 🔮 Roadmap
 
