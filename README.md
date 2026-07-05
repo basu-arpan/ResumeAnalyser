@@ -28,7 +28,7 @@ A **Streamlit** web application that uses **Natural Language Processing** to ana
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ai-resume-analyzer.git
+git clone https://github.com/basu-arpan/ResumeAnalyzer.git
 cd ai-resume-analyzer
 ```
 
